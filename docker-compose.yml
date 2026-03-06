@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: prod.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database.db:/app/database.db
+      - ./uploads:/app/uploads
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-vibestore-secret-key}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    restart: always
