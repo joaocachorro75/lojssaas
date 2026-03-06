@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Lock, User, Eye, EyeOff } from "lucide-react";
 
 export function AdminLogin() {
-  const [username, setUsername] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
@@ -22,7 +22,7 @@ export function AdminLogin() {
           "Content-Type": "application/json",
           "x-tenant-id": tenantId
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ whatsapp, password })
       });
       const data = await res.json();
       if (data.token) {
@@ -52,16 +52,16 @@ export function AdminLogin() {
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-4">
             <div className="space-y-1">
-              <label className="text-sm font-medium text-zinc-700">Usuário</label>
+              <label className="text-sm font-medium text-zinc-700">WhatsApp</label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" size={20} />
                 <input 
                   type="text" 
                   required
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
+                  value={whatsapp}
+                  onChange={e => setWhatsapp(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
-                  placeholder="Seu usuário"
+                  placeholder="5511999999999"
                 />
               </div>
             </div>

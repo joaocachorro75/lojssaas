@@ -111,7 +111,7 @@ export function Storefront() {
             <Link to="/admin/login" className="text-[10px] opacity-20 hover:opacity-100 transition-opacity">Painel Administrativo</Link>
           </div>
           <p className="flex items-center gap-1">
-            Desenvolvido por <a href="https://to-ligado.com" target="_blank" rel="noopener noreferrer" className="font-bold text-cyan-600 hover:underline">To-Ligado.com</a>
+            Desenvolvido por <a href="https://site.to-ligado.com" target="_blank" rel="noopener noreferrer" className="font-bold text-cyan-600 hover:underline">To-Ligado.com</a>
           </p>
         </div>
       </footer>

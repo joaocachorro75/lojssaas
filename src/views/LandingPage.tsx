@@ -562,9 +562,14 @@ export function LandingPage() {
           ))}
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-zinc-600 text-xs font-bold uppercase tracking-widest">
-            © 2024 SUPERLOJAS. TODOS OS DIREITOS RESERVADOS.
-          </p>
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <p className="text-zinc-600 text-xs font-bold uppercase tracking-widest">
+              © 2024 SUPERLOJAS. TODOS OS DIREITOS RESERVADOS.
+            </p>
+            <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">
+              Desenvolvido por <a href="https://site.to-ligado.com" target="_blank" rel="noopener noreferrer" className="text-cyan-500 hover:underline">To-Ligado.com</a>
+            </p>
+          </div>
           <div className="flex gap-6">
             <a href="#" className="text-zinc-600 hover:text-white transition-colors"><Globe size={20} /></a>
             <a href="#" className="text-zinc-600 hover:text-white transition-colors"><Smartphone size={20} /></a>

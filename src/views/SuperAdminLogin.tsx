@@ -4,7 +4,7 @@ import { Shield, Lock, User, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function SuperAdminLogin() {
-  const [username, setUsername] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ export function SuperAdminLogin() {
       const res = await fetch("/api/super/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ whatsapp, password }),
       });
       
       const data = await res.json();
@@ -53,15 +53,15 @@ export function SuperAdminLogin() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-zinc-400 mb-1.5 ml-1">Usuário</label>
+            <label className="block text-sm font-medium text-zinc-400 mb-1.5 ml-1">WhatsApp</label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-600" size={18} />
               <input
                 type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={whatsapp}
+                onChange={(e) => setWhatsapp(e.target.value)}
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all"
-                placeholder="Digite seu usuário"
+                placeholder="5511999999999"
                 required
               />
             </div>

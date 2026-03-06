@@ -57,10 +57,28 @@ tablesToMigrate.forEach(table => {
         }
       });
     }
+
+    if (table === "admins") {
+      if (info.some(c => c.name === "username") && !info.some(c => c.name === "whatsapp")) {
+        console.log(`Migrating table admins: renaming username to whatsapp`);
+        db.prepare(`ALTER TABLE admins RENAME COLUMN username TO whatsapp`).run();
+      }
+    }
   } catch (e) {
     console.error(`Error migrating table ${table}:`, e);
   }
 });
+
+// Separate migration for super_admins since it's not in tablesToMigrate
+try {
+  const info = db.prepare(`PRAGMA table_info(super_admins)`).all() as any[];
+  if (info.some(c => c.name === "username") && !info.some(c => c.name === "whatsapp")) {
+    console.log(`Migrating table super_admins: renaming username to whatsapp`);
+    db.prepare(`ALTER TABLE super_admins RENAME COLUMN username TO whatsapp`).run();
+  }
+} catch (e) {
+  console.error(`Error migrating table super_admins:`, e);
+}
 
 // Initialize Database Schema
 db.exec(`
@@ -85,7 +103,7 @@ db.exec(`
 
   CREATE TABLE IF NOT EXISTS super_admins (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT UNIQUE NOT NULL,
+    whatsapp TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL
   );
 
@@ -263,9 +281,9 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS admins (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     tenant_id INTEGER NOT NULL,
-    username TEXT NOT NULL,
+    whatsapp TEXT NOT NULL,
     password TEXT NOT NULL,
-    UNIQUE(tenant_id, username),
+    UNIQUE(tenant_id, whatsapp),
     FOREIGN KEY (tenant_id) REFERENCES tenants (id) ON DELETE CASCADE
   );
 `);
@@ -282,7 +300,7 @@ if (planCount.count === 0) {
 const superAdminCount = db.prepare("SELECT COUNT(*) as count FROM super_admins").get() as any;
 if (superAdminCount.count === 0) {
   const hashedPassword = bcrypt.hashSync("superadmin123", 10);
-  db.prepare("INSERT INTO super_admins (username, password) VALUES (?, ?)").run("superadmin", hashedPassword);
+  db.prepare("INSERT INTO super_admins (whatsapp, password) VALUES (?, ?)").run("5511999999999", hashedPassword);
 }
 
 // Insert initial tenant if none exist (for backward compatibility/initial setup)
@@ -294,7 +312,7 @@ if (tenantCount.count === 0) {
   db.prepare("INSERT INTO settings (tenant_id) VALUES (?)").run(tenantId);
   
   const hashedPassword = bcrypt.hashSync("admin123", 10);
-  db.prepare("INSERT INTO admins (tenant_id, username, password) VALUES (?, ?, ?)").run(tenantId, "admin", hashedPassword);
+  db.prepare("INSERT INTO admins (tenant_id, whatsapp, password) VALUES (?, ?, ?)").run(tenantId, "5511888888888", hashedPassword);
   
   db.prepare("INSERT INTO categories (tenant_id, name, slug) VALUES (?, ?, ?)").run(tenantId, "Eletrônicos", "eletronicos");
   db.prepare("INSERT INTO categories (tenant_id, name, slug) VALUES (?, ?, ?)").run(tenantId, "Roupas", "roupas");
@@ -373,8 +391,8 @@ const authenticateAffiliate = (req: any, res: any, next: any) => {
 
 // Super Admin Auth
 app.post("/api/super/login", (req, res) => {
-  const { username, password } = req.body;
-  const admin = db.prepare("SELECT * FROM super_admins WHERE username = ?").get(username) as any;
+  const { whatsapp, password } = req.body;
+  const admin = db.prepare("SELECT * FROM super_admins WHERE whatsapp = ?").get(whatsapp) as any;
   if (admin && bcrypt.compareSync(password, admin.password)) {
     const token = jwt.sign({ id: admin.id, isSuperAdmin: true }, JWT_SECRET, { expiresIn: "7d" });
     res.json({ token });
@@ -394,7 +412,7 @@ app.get("/api/super/tenants", authenticateSuperAdmin, (req, res) => {
 });
 
 app.post("/api/super/tenants", authenticateSuperAdmin, (req, res) => {
-  const { name, slug, plan_id, admin_username, admin_password } = req.body;
+  const { name, slug, plan_id, admin_whatsapp, admin_password } = req.body;
   try {
     const result = db.prepare("INSERT INTO tenants (name, slug, plan_id) VALUES (?, ?, ?)").run(name, slug, plan_id);
     const tenantId = result.lastInsertRowid;
@@ -402,7 +420,7 @@ app.post("/api/super/tenants", authenticateSuperAdmin, (req, res) => {
     db.prepare("INSERT INTO settings (tenant_id, store_name) VALUES (?, ?)").run(tenantId, name);
     
     const hashedPassword = bcrypt.hashSync(admin_password, 10);
-    db.prepare("INSERT INTO admins (tenant_id, username, password) VALUES (?, ?, ?)").run(tenantId, admin_username, hashedPassword);
+    db.prepare("INSERT INTO admins (tenant_id, whatsapp, password) VALUES (?, ?, ?)").run(tenantId, admin_whatsapp, hashedPassword);
     
     res.json({ success: true, tenantId });
   } catch (e) {
@@ -597,8 +615,8 @@ app.get("/api/admin/reports", authenticateAdmin, (req: any, res) => {
 // Admin Auth
 app.post("/api/admin/login", (req, res) => {
   const tenantId = getTenantId(req);
-  const { username, password } = req.body;
-  const admin = db.prepare("SELECT * FROM admins WHERE username = ? AND tenant_id = ?").get(username, tenantId) as any;
+  const { whatsapp, password } = req.body;
+  const admin = db.prepare("SELECT * FROM admins WHERE whatsapp = ? AND tenant_id = ?").get(whatsapp, tenantId) as any;
   if (admin && bcrypt.compareSync(password, admin.password)) {
     const token = jwt.sign({ id: admin.id, tenantId: admin.tenant_id }, JWT_SECRET, { expiresIn: "7d" });
     res.json({ token });

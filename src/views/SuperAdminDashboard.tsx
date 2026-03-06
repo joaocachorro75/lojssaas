@@ -24,7 +24,7 @@ export function SuperAdminDashboard() {
     name: "",
     slug: "",
     plan_id: 1,
-    admin_username: "admin",
+    admin_whatsapp: "5511888888888",
     admin_password: ""
   });
   
@@ -69,7 +69,7 @@ export function SuperAdminDashboard() {
       if (res.ok) {
         setIsModalOpen(false);
         fetchData();
-        setNewTenant({ name: "", slug: "", plan_id: 1, admin_username: "admin", admin_password: "" });
+        setNewTenant({ name: "", slug: "", plan_id: 1, admin_whatsapp: "5511888888888", admin_password: "" });
       } else {
         const data = await res.json();
         alert(data.error);
@@ -378,12 +378,13 @@ export function SuperAdminDashboard() {
                   <p className="text-xs text-zinc-500 uppercase font-bold mb-4">Credenciais do Administrador</p>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-zinc-400 mb-1.5 ml-1">Usuário</label>
+                      <label className="block text-sm font-medium text-zinc-400 mb-1.5 ml-1">WhatsApp</label>
                       <input
                         type="text"
-                        value={newTenant.admin_username}
-                        onChange={(e) => setNewTenant({...newTenant, admin_username: e.target.value})}
+                        value={newTenant.admin_whatsapp}
+                        onChange={(e) => setNewTenant({...newTenant, admin_whatsapp: e.target.value})}
                         className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-cyan-500"
+                        placeholder="5511999999999"
                         required
                       />
                     </div>
