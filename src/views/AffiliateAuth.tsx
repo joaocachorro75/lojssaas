@@ -161,12 +161,16 @@ export function AffiliateAuth() {
           </button>
         </form>
 
-        <div className="text-center">
+        <div className="pt-6 border-t border-zinc-100 text-center">
+          <p className="text-zinc-500 text-sm mb-4">
+            {isLogin ? "Ainda não tem uma conta?" : "Já possui uma conta?"}
+          </p>
           <button 
+            type="button"
             onClick={() => setIsLogin(!isLogin)}
-            className="text-sm text-zinc-500 hover:text-cyan-600 font-medium"
+            className="w-full py-3 border-2 border-cyan-600 text-cyan-600 rounded-xl font-bold hover:bg-cyan-50 transition-all"
           >
-            {isLogin ? "Não tem conta? Cadastre-se aqui" : "Já tem conta? Faça login aqui"}
+            {isLogin ? "Criar Conta de Afiliado" : "Fazer Login"}
           </button>
         </div>
       </div>

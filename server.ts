@@ -613,6 +613,41 @@ app.get("/api/admin/reports", authenticateAdmin, (req: any, res) => {
 });
 
 // Admin Auth
+app.post("/api/admin/register", async (req, res) => {
+  const { storeName, whatsapp, password } = req.body;
+  
+  try {
+    const existingAdmin = db.prepare("SELECT * FROM admins WHERE whatsapp = ?").get(whatsapp);
+    if (existingAdmin) {
+      return res.status(400).json({ error: "Este WhatsApp já está cadastrado como administrador" });
+    }
+
+    // Create a simple subdomain from store name
+    const subdomain = storeName.toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "");
+    
+    // Create tenant (default to plan 1)
+    const tenantResult = db.prepare("INSERT INTO tenants (name, subdomain, status, plan_id) VALUES (?, ?, 'active', 1)").run(storeName, subdomain);
+    const tenantId = tenantResult.lastInsertRowid;
+
+    // Create default settings
+    db.prepare("INSERT INTO settings (tenant_id, store_name) VALUES (?, ?)").run(tenantId, storeName);
+
+    // Create admin
+    const hashedPassword = await bcrypt.hash(password, 10);
+    db.prepare("INSERT INTO admins (tenant_id, whatsapp, password) VALUES (?, ?, ?)").run(tenantId, whatsapp, hashedPassword);
+
+    const token = jwt.sign({ id: tenantId, tenantId, role: "admin" }, JWT_SECRET);
+    res.json({ token, tenantId });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Erro ao criar loja" });
+  }
+});
+
 app.post("/api/admin/login", (req, res) => {
   const tenantId = getTenantId(req);
   const { whatsapp, password } = req.body;
