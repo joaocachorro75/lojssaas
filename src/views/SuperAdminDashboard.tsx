@@ -276,7 +276,7 @@ export function SuperAdminDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
                 { label: "Total de Lojas", value: tenants.length, icon: <Globe size={24} />, color: "text-cyan-500" },
-                { label: "Lojas Ativas", value: tenants.filter(t => t.status === 'active').length, icon: <CheckCircle size={24} />, color: "text-emerald-500" },
+                { label: "Lojas Ativas", value: tenants.filter(t => t.status === 'active').length, icon: <CheckCircle size={24} />, color: "text-cyan-500" },
                 { label: "Planos Disponíveis", value: plans.length, icon: <CreditCard size={24} />, color: "text-blue-500" },
                 { label: "Faturamento Estimado", value: `R$ ${tenants.reduce((acc, t) => acc + (plans.find(p => p.id === t.plan_id)?.price || 0), 0).toFixed(2)}`, icon: <BarChart3 size={24} />, color: "text-purple-500" }
               ].map((stat, idx) => (

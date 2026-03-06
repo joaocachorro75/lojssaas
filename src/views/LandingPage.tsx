@@ -149,7 +149,7 @@ export function LandingPage() {
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/50" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-cyan-500/50" />
                 </div>
                 <div className="h-6 w-48 bg-white/5 rounded-full" />
               </div>
