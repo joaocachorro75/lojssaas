@@ -1,6 +1,41 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // Aggressive safeguard against libraries trying to overwrite window.fetch
+      (function() {
+        function protect(obj, prop, name) {
+          try {
+            const descriptor = Object.getOwnPropertyDescriptor(obj, prop);
+            if (descriptor && descriptor.configurable) {
+              const originalValue = obj[prop];
+              Object.defineProperty(obj, prop, {
+                get: function() { return originalValue; },
+                set: function(v) { 
+                  console.warn('Attempt to overwrite ' + name + '.' + prop + ' ignored'); 
+                },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          } catch (e) {}
+        }
+        
+        protect(window, 'fetch', 'window');
+        protect(window, 'Headers', 'window');
+        protect(window, 'Request', 'window');
+        protect(window, 'Response', 'window');
+        if (typeof Window !== 'undefined') {
+          protect(Window.prototype, 'fetch', 'Window.prototype');
+        }
+        if (typeof globalThis !== 'undefined') {
+          protect(globalThis, 'fetch', 'globalThis');
+          protect(globalThis, 'Headers', 'globalThis');
+          protect(globalThis, 'Request', 'globalThis');
+          protect(globalThis, 'Response', 'globalThis');
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#10b981" />

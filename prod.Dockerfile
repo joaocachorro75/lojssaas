@@ -34,7 +34,6 @@ COPY --from=builder /app/node_modules ./node_modules
 # Copy built frontend and server code
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/server.ts ./
-COPY --from=builder /app/database.db ./
 
 # Expose port 3000
 EXPOSE 3000
