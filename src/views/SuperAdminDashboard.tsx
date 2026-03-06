@@ -89,8 +89,8 @@ export function SuperAdminDashboard() {
       {/* Mobile Header */}
       <header className="lg:hidden h-16 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between px-6 sticky top-0 z-40">
         <div className="flex items-center gap-3">
-          <Shield size={24} className="text-emerald-500" />
-          <span className="font-bold">VibeSaaS</span>
+          <Shield size={24} className="text-cyan-500" />
+          <span className="font-bold tracking-tighter">SUPERLOJAS</span>
         </div>
         <button onClick={() => setIsSidebarOpen(true)} className="p-2 hover:bg-zinc-800 rounded-full">
           <Menu size={24} />
@@ -115,11 +115,11 @@ export function SuperAdminDashboard() {
       )}>
         <div className="p-6 flex items-center justify-between border-b border-zinc-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-600/20">
               <Shield size={24} className="text-white" />
             </div>
             <div>
-              <h1 className="font-bold text-lg leading-tight">VibeSaaS</h1>
+              <h1 className="font-bold text-lg leading-tight tracking-tighter">SUPERLOJAS</h1>
               <p className="text-xs text-zinc-500 uppercase tracking-widest font-bold">Super Admin</p>
             </div>
           </div>
@@ -133,7 +133,7 @@ export function SuperAdminDashboard() {
             onClick={() => { setActiveTab("tenants"); setIsSidebarOpen(false); }}
             className={cn(
               "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all",
-              activeTab === "tenants" ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/20" : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
+              activeTab === "tenants" ? "bg-cyan-600 text-white shadow-lg shadow-cyan-600/20" : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
             )}
           >
             <Globe size={20} /> Lojas (Tenants)
@@ -142,7 +142,7 @@ export function SuperAdminDashboard() {
             onClick={() => { setActiveTab("plans"); setIsSidebarOpen(false); }}
             className={cn(
               "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all",
-              activeTab === "plans" ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/20" : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
+              activeTab === "plans" ? "bg-cyan-600 text-white shadow-lg shadow-cyan-600/20" : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
             )}
           >
             <CreditCard size={20} /> Planos & Preços
@@ -151,7 +151,7 @@ export function SuperAdminDashboard() {
             onClick={() => { setActiveTab("stats"); setIsSidebarOpen(false); }}
             className={cn(
               "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all",
-              activeTab === "stats" ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/20" : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
+              activeTab === "stats" ? "bg-cyan-600 text-white shadow-lg shadow-cyan-600/20" : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
             )}
           >
             <BarChart3 size={20} /> Estatísticas Globais
@@ -183,7 +183,7 @@ export function SuperAdminDashboard() {
           {activeTab === "tenants" && (
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-600/20"
+              className="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-cyan-600/20"
             >
               <Plus size={20} /> Nova Loja
             </button>
@@ -197,7 +197,7 @@ export function SuperAdminDashboard() {
                 key={tenant.id}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 hover:border-emerald-500/50 transition-all group"
+                className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 hover:border-cyan-500/50 transition-all group"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-12 h-12 bg-zinc-800 rounded-2xl flex items-center justify-center border border-zinc-700">
@@ -205,7 +205,7 @@ export function SuperAdminDashboard() {
                   </div>
                   <span className={cn(
                     "px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
-                    tenant.status === 'active' ? "bg-emerald-500/10 text-emerald-500" : "bg-red-500/10 text-red-500"
+                    tenant.status === 'active' ? "bg-cyan-500/10 text-cyan-500" : "bg-red-500/10 text-red-500"
                   )}>
                     {tenant.status === 'active' ? 'Ativa' : 'Suspensa'}
                   </span>
@@ -217,7 +217,7 @@ export function SuperAdminDashboard() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex-1 bg-zinc-800/50 rounded-2xl p-3 border border-zinc-800">
                     <p className="text-[10px] text-zinc-500 uppercase font-bold mb-1">Plano</p>
-                    <p className="font-bold text-emerald-500">{tenant.plan_name}</p>
+                    <p className="font-bold text-cyan-500">{tenant.plan_name}</p>
                   </div>
                   <div className="flex-1 bg-zinc-800/50 rounded-2xl p-3 border border-zinc-800">
                     <p className="text-[10px] text-zinc-500 uppercase font-bold mb-1">Criada em</p>
@@ -248,17 +248,17 @@ export function SuperAdminDashboard() {
               <div key={plan.id} className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-4xl font-bold text-emerald-500">R$ {plan.price.toFixed(2)}</span>
+                  <span className="text-4xl font-bold text-cyan-500">R$ {plan.price.toFixed(2)}</span>
                   <span className="text-zinc-500">/mês</span>
                 </div>
                 
                 <ul className="space-y-4 mb-8 flex-1">
                   <li className="flex items-center gap-3 text-zinc-400">
-                    <CheckCircle size={18} className="text-emerald-500" /> Até {plan.max_products} produtos
+                    <CheckCircle size={18} className="text-cyan-500" /> Até {plan.max_products} produtos
                   </li>
                   {JSON.parse(plan.features_json || "[]").map((feature: string, idx: number) => (
                     <li key={idx} className="flex items-center gap-3 text-zinc-400">
-                      <CheckCircle size={18} className="text-emerald-500" /> {feature}
+                      <CheckCircle size={18} className="text-cyan-500" /> {feature}
                     </li>
                   ))}
                 </ul>
@@ -268,6 +268,52 @@ export function SuperAdminDashboard() {
                 </button>
               </div>
             ))}
+          </div>
+        )}
+
+        {activeTab === "stats" && (
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {[
+                { label: "Total de Lojas", value: tenants.length, icon: <Globe size={24} />, color: "text-cyan-500" },
+                { label: "Lojas Ativas", value: tenants.filter(t => t.status === 'active').length, icon: <CheckCircle size={24} />, color: "text-emerald-500" },
+                { label: "Planos Disponíveis", value: plans.length, icon: <CreditCard size={24} />, color: "text-blue-500" },
+                { label: "Faturamento Estimado", value: `R$ ${tenants.reduce((acc, t) => acc + (plans.find(p => p.id === t.plan_id)?.price || 0), 0).toFixed(2)}`, icon: <BarChart3 size={24} />, color: "text-purple-500" }
+              ].map((stat, idx) => (
+                <div key={idx} className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6">
+                  <div className={cn("w-12 h-12 bg-zinc-800 rounded-2xl flex items-center justify-center mb-4 border border-zinc-700", stat.color)}>
+                    {stat.icon}
+                  </div>
+                  <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-1">{stat.label}</p>
+                  <p className="text-2xl font-black text-white">{stat.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-zinc-900 border border-zinc-800 rounded-[2.5rem] p-8">
+              <h3 className="text-xl font-bold mb-6">Distribuição de Planos</h3>
+              <div className="space-y-4">
+                {plans.map(plan => {
+                  const count = tenants.filter(t => t.plan_id === plan.id).length;
+                  const percentage = tenants.length > 0 ? (count / tenants.length) * 100 : 0;
+                  return (
+                    <div key={plan.id} className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span className="font-bold">{plan.name}</span>
+                        <span className="text-zinc-500">{count} lojas ({percentage.toFixed(1)}%)</span>
+                      </div>
+                      <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: `${percentage}%` }}
+                          className="h-full bg-cyan-500"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         )}
       </main>
@@ -299,7 +345,7 @@ export function SuperAdminDashboard() {
                       type="text"
                       value={newTenant.name}
                       onChange={(e) => setNewTenant({...newTenant, name: e.target.value})}
-                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-emerald-500"
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-cyan-500"
                       placeholder="Ex: Minha Loja"
                       required
                     />
@@ -310,7 +356,7 @@ export function SuperAdminDashboard() {
                       type="text"
                       value={newTenant.slug}
                       onChange={(e) => setNewTenant({...newTenant, slug: e.target.value})}
-                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-emerald-500"
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-cyan-500"
                       placeholder="ex-loja"
                       required
                     />
@@ -322,7 +368,7 @@ export function SuperAdminDashboard() {
                   <select
                     value={newTenant.plan_id}
                     onChange={(e) => setNewTenant({...newTenant, plan_id: Number(e.target.value)})}
-                    className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-cyan-500"
                   >
                     {plans.map(p => <option key={p.id} value={p.id}>{p.name} - R$ {p.price.toFixed(2)}</option>)}
                   </select>
@@ -337,7 +383,7 @@ export function SuperAdminDashboard() {
                         type="text"
                         value={newTenant.admin_username}
                         onChange={(e) => setNewTenant({...newTenant, admin_username: e.target.value})}
-                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-cyan-500"
                         required
                       />
                     </div>
@@ -347,7 +393,7 @@ export function SuperAdminDashboard() {
                         type="password"
                         value={newTenant.admin_password}
                         onChange={(e) => setNewTenant({...newTenant, admin_password: e.target.value})}
-                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-emerald-500"
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl py-3 px-4 text-white outline-none focus:ring-2 focus:ring-cyan-500"
                         placeholder="••••••••"
                         required
                       />
@@ -365,7 +411,7 @@ export function SuperAdminDashboard() {
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-all"
+                    className="flex-1 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 rounded-xl transition-all"
                   >
                     Criar Loja
                   </button>

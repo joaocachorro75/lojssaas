@@ -74,7 +74,7 @@ export function AdminDashboard() {
       )}>
         <div className="h-full flex flex-col">
           <div className="p-6 border-b flex items-center justify-between">
-            <h1 className="text-xl font-bold tracking-tight text-emerald-600">VibeStore Admin</h1>
+            <h1 className="text-xl font-bold tracking-tighter text-cyan-600">SUPERLOJAS</h1>
             <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden p-2 hover:bg-zinc-100 rounded-full">
               <X size={20} />
             </button>
@@ -87,7 +87,7 @@ export function AdminDashboard() {
                 onClick={() => { if (window.innerWidth < 1024) setIsSidebarOpen(false); }}
                 className={cn(
                   "flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all",
-                  location.pathname === item.path ? "bg-emerald-50 text-emerald-600" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
+                  location.pathname === item.path ? "bg-cyan-50 text-cyan-600" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                 )}
               >
                 <item.icon size={20} />
@@ -117,7 +117,7 @@ export function AdminDashboard() {
             <Menu size={24} />
           </button>
           <div className="flex items-center gap-4 ml-auto">
-            <Link to="/" target="_blank" className="flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-emerald-600 transition-colors">
+            <Link to="/" target="_blank" className="flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-cyan-600 transition-colors">
               <ExternalLink size={16} /> Ver Loja
             </Link>
           </div>
@@ -160,7 +160,7 @@ function DashboardHome() {
 
   const cards = [
     { label: "Total de Pedidos", value: stats.orders, icon: ShoppingBag, color: "bg-blue-500" },
-    { label: "Produtos Ativos", value: stats.products, icon: Package, color: "bg-emerald-500" },
+    { label: "Produtos Ativos", value: stats.products, icon: Package, color: "bg-cyan-500" },
     { label: "Receita Total", value: `R$ ${stats.revenue.toFixed(2)}`, icon: CreditCard, color: "bg-purple-500" },
   ];
 
@@ -189,8 +189,8 @@ function DashboardHome() {
                 <AreaChart data={reportData.salesByDay.slice().reverse()}>
                   <defs>
                     <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#10b981" stopOpacity={0.1}/>
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.1}/>
+                      <stop offset="95%" stopColor="#06b6d4" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
@@ -211,7 +211,7 @@ function DashboardHome() {
                     contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
                     formatter={(val: any) => [`R$ ${val.toFixed(2)}`, 'Receita']}
                   />
-                  <Area type="monotone" dataKey="total" stroke="#10b981" strokeWidth={3} fillOpacity={1} fill="url(#colorTotal)" />
+                  <Area type="monotone" dataKey="total" stroke="#06b6d4" strokeWidth={3} fillOpacity={1} fill="url(#colorTotal)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -340,7 +340,7 @@ function ProductManagement() {
         <h1 className="text-2xl font-bold">Gerenciar Produtos</h1>
         <button 
           onClick={() => { setEditingProduct(null); setIsModalOpen(true); }}
-          className="bg-emerald-600 text-white px-4 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-emerald-700 transition-colors"
+          className="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-cyan-700 transition-colors"
         >
           <Plus size={20} /> Novo Produto
         </button>
@@ -370,12 +370,12 @@ function ProductManagement() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm text-zinc-500">{p.category_name}</td>
-                  <td className="px-6 py-4 font-bold text-emerald-600">R$ {p.price.toFixed(2)}</td>
+                  <td className="px-6 py-4 font-bold text-cyan-600">R$ {p.price.toFixed(2)}</td>
                   <td className="px-6 py-4 text-sm">{p.stock} un</td>
                   <td className="px-6 py-4">
                     <span className={cn(
                       "px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
-                      p.active ? "bg-emerald-100 text-emerald-600" : "bg-zinc-100 text-zinc-400"
+                      p.active ? "bg-cyan-100 text-cyan-600" : "bg-zinc-100 text-zinc-400"
                     )}>
                       {p.active ? "Ativo" : "Inativo"}
                     </span>
@@ -384,7 +384,7 @@ function ProductManagement() {
                     <div className="flex items-center justify-end gap-2">
                       <button 
                         onClick={() => { setEditingProduct(p); setFormData(p); setIsModalOpen(true); }}
-                        className="p-2 text-zinc-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all"
+                        className="p-2 text-zinc-400 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all"
                       >
                         <Edit size={18} />
                       </button>
@@ -416,7 +416,7 @@ function ProductManagement() {
                 </div>
                 <span className={cn(
                   "px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
-                  p.active ? "bg-emerald-100 text-emerald-600" : "bg-zinc-100 text-zinc-400"
+                  p.active ? "bg-cyan-100 text-cyan-600" : "bg-zinc-100 text-zinc-400"
                 )}>
                   {p.active ? "Ativo" : "Inativo"}
                 </span>
@@ -424,7 +424,7 @@ function ProductManagement() {
               <div className="flex items-center justify-between text-sm">
                 <div className="space-y-1">
                   <p className="text-zinc-500">Preço</p>
-                  <p className="font-bold text-emerald-600">R$ {p.price.toFixed(2)}</p>
+                  <p className="font-bold text-cyan-600">R$ {p.price.toFixed(2)}</p>
                 </div>
                 <div className="space-y-1 text-right">
                   <p className="text-zinc-500">Estoque</p>
@@ -470,7 +470,7 @@ function ProductManagement() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="col-span-2 space-y-1">
                     <label className="text-sm font-medium">Nome do Produto</label>
-                    <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" />
+                    <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500" />
                   </div>
                   <div className="col-span-2 space-y-1">
                     <div className="flex items-center justify-between">
@@ -479,24 +479,24 @@ function ProductManagement() {
                         type="button"
                         onClick={generateAIDescription}
                         disabled={aiLoading}
-                        className="text-[10px] font-bold text-emerald-600 flex items-center gap-1 hover:underline disabled:opacity-50"
+                        className="text-[10px] font-bold text-cyan-600 flex items-center gap-1 hover:underline disabled:opacity-50"
                       >
                         <Ghost size={12} /> {aiLoading ? "Gerando..." : "Gerar com IA"}
                       </button>
                     </div>
-                    <textarea value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500 h-24" />
+                    <textarea value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500 h-24" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-sm font-medium">Preço (R$)</label>
-                    <input type="number" step="0.01" required value={formData.price} onChange={e => setFormData({...formData, price: Number(e.target.value)})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" />
+                    <input type="number" step="0.01" required value={formData.price} onChange={e => setFormData({...formData, price: Number(e.target.value)})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-sm font-medium">Estoque</label>
-                    <input type="number" required value={formData.stock} onChange={e => setFormData({...formData, stock: Number(e.target.value)})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" />
+                    <input type="number" required value={formData.stock} onChange={e => setFormData({...formData, stock: Number(e.target.value)})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-sm font-medium">Categoria</label>
-                    <select value={formData.category_id} onChange={e => setFormData({...formData, category_id: e.target.value})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500">
+                    <select value={formData.category_id} onChange={e => setFormData({...formData, category_id: e.target.value})} className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500">
                       <option value="">Selecione...</option>
                       {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                     </select>
@@ -524,7 +524,7 @@ function ProductManagement() {
                     <input type="number" value={formData.height} onChange={e => setFormData({...formData, height: Number(e.target.value)})} className="w-full px-3 py-2 border rounded-lg text-sm" />
                   </div>
                 </div>
-                <button type="submit" className="w-full bg-emerald-600 text-white py-4 rounded-xl font-bold hover:bg-emerald-700 transition-colors">Salvar Produto</button>
+                <button type="submit" className="w-full bg-cyan-600 text-white py-4 rounded-xl font-bold hover:bg-cyan-700 transition-colors">Salvar Produto</button>
               </form>
             </motion.div>
           </div>
@@ -594,7 +594,7 @@ function OrderManagement({ limit }: { limit?: number }) {
                     <span className={cn(
                       "px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
                       o.status === 'pending' && "bg-yellow-100 text-yellow-600",
-                      o.status === 'paid' && "bg-emerald-100 text-emerald-600",
+                      o.status === 'paid' && "bg-cyan-100 text-cyan-600",
                       o.status === 'shipped' && "bg-blue-100 text-blue-600",
                       o.status === 'delivered' && "bg-purple-100 text-purple-600",
                       o.status === 'cancelled' && "bg-red-100 text-red-600",
@@ -604,8 +604,8 @@ function OrderManagement({ limit }: { limit?: number }) {
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex items-center justify-end gap-2">
-                      <button onClick={() => setSelectedOrder(o)} className="p-2 text-zinc-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all"><Edit size={18} /></button>
-                      <button onClick={() => shareOrder(o)} className="p-2 text-zinc-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all"><MessageSquare size={18} /></button>
+                      <button onClick={() => setSelectedOrder(o)} className="p-2 text-zinc-400 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all"><Edit size={18} /></button>
+                      <button onClick={() => shareOrder(o)} className="p-2 text-zinc-400 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all"><MessageSquare size={18} /></button>
                     </div>
                   </td>
                 </tr>
@@ -627,7 +627,7 @@ function OrderManagement({ limit }: { limit?: number }) {
                 <span className={cn(
                   "px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
                   o.status === 'pending' && "bg-yellow-100 text-yellow-600",
-                  o.status === 'paid' && "bg-emerald-100 text-emerald-600",
+                  o.status === 'paid' && "bg-cyan-100 text-cyan-600",
                   o.status === 'shipped' && "bg-blue-100 text-blue-600",
                   o.status === 'delivered' && "bg-purple-100 text-purple-600",
                   o.status === 'cancelled' && "bg-red-100 text-red-600",
@@ -648,7 +648,7 @@ function OrderManagement({ limit }: { limit?: number }) {
                 </button>
                 <button 
                   onClick={() => shareOrder(o)}
-                  className="flex-1 flex items-center justify-center gap-2 py-2 bg-emerald-50 text-emerald-600 rounded-xl font-bold text-sm"
+                  className="flex-1 flex items-center justify-center gap-2 py-2 bg-cyan-50 text-cyan-600 rounded-xl font-bold text-sm"
                 >
                   <MessageSquare size={16} /> WhatsApp
                 </button>
@@ -670,7 +670,7 @@ function OrderManagement({ limit }: { limit?: number }) {
                   <select 
                     value={selectedOrder.status} 
                     onChange={e => updateStatus(selectedOrder.id, e.target.value)}
-                    className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                   >
                     <option value="pending">Pendente</option>
                     <option value="paid">Pago</option>
@@ -706,7 +706,7 @@ function AdvancedReports() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-3xl border border-zinc-100 shadow-sm space-y-4">
-          <h2 className="font-bold flex items-center gap-2"><BarChart3 size={20} className="text-emerald-500" /> Vendas (Últimos 30 dias)</h2>
+          <h2 className="font-bold flex items-center gap-2"><BarChart3 size={20} className="text-cyan-500" /> Vendas (Últimos 30 dias)</h2>
           <div className="space-y-2">
             {data.salesByDay.map((day: any) => (
               <div key={day.day} className="flex items-center justify-between text-sm">
@@ -721,7 +721,7 @@ function AdvancedReports() {
         </div>
 
         <div className="bg-white p-6 rounded-3xl border border-zinc-100 shadow-sm space-y-4">
-          <h2 className="font-bold flex items-center gap-2"><Package size={20} className="text-emerald-500" /> Produtos Mais Vendidos</h2>
+          <h2 className="font-bold flex items-center gap-2"><Package size={20} className="text-cyan-500" /> Produtos Mais Vendidos</h2>
           <div className="space-y-2">
             {data.topProducts.map((p: any) => (
               <div key={p.name} className="flex items-center justify-between text-sm">
@@ -794,7 +794,7 @@ function AbandonedCarts() {
                     <a 
                       href={`https://wa.me/${customer.whatsapp}?text=Olá ${customer.name}, vimos que você deixou alguns itens no carrinho em nossa loja. Gostaria de finalizar sua compra?`}
                       target="_blank"
-                      className="text-emerald-600 hover:bg-emerald-50 px-4 py-2 rounded-xl text-sm font-bold transition-all inline-flex items-center gap-2"
+                      className="text-cyan-600 hover:bg-cyan-50 px-4 py-2 rounded-xl text-sm font-bold transition-all inline-flex items-center gap-2"
                     >
                       <MessageSquare size={16} /> Recuperar
                     </a>
@@ -852,7 +852,7 @@ function CouponManagement() {
         <h1 className="text-2xl font-bold">Cupons de Desconto</h1>
         <button 
           onClick={() => setIsAdding(true)}
-          className="bg-emerald-600 text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-2 hover:bg-emerald-700 transition-all"
+          className="bg-cyan-600 text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-2 hover:bg-cyan-700 transition-all"
         >
           <Plus size={20} /> Novo Cupom
         </button>
@@ -886,7 +886,7 @@ function CouponManagement() {
               <input type="date" value={formData.expires_at} onChange={e => setFormData({...formData, expires_at: e.target.value})} className="w-full px-4 py-2 border rounded-xl" />
             </div>
             <div className="md:col-span-2 flex gap-4">
-              <button type="submit" className="flex-1 bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition-all">Salvar Cupom</button>
+              <button type="submit" className="flex-1 bg-cyan-600 text-white py-3 rounded-xl font-bold hover:bg-cyan-700 transition-all">Salvar Cupom</button>
               <button type="button" onClick={() => setIsAdding(false)} className="px-8 py-3 bg-zinc-100 text-zinc-600 rounded-xl font-bold hover:bg-zinc-200 transition-all">Cancelar</button>
             </div>
           </form>
@@ -978,11 +978,11 @@ function AffiliateManagement() {
         <div className="flex bg-zinc-100 p-1 rounded-xl">
           <button 
             onClick={() => setActiveTab('affiliates')}
-            className={cn("px-4 py-2 rounded-lg text-sm font-bold transition-all", activeTab === 'affiliates' ? "bg-white shadow-sm text-emerald-600" : "text-zinc-500")}
+            className={cn("px-4 py-2 rounded-lg text-sm font-bold transition-all", activeTab === 'affiliates' ? "bg-white shadow-sm text-cyan-600" : "text-zinc-500")}
           >Afiliados</button>
           <button 
             onClick={() => setActiveTab('commissions')}
-            className={cn("px-4 py-2 rounded-lg text-sm font-bold transition-all", activeTab === 'commissions' ? "bg-white shadow-sm text-emerald-600" : "text-zinc-500")}
+            className={cn("px-4 py-2 rounded-lg text-sm font-bold transition-all", activeTab === 'commissions' ? "bg-white shadow-sm text-cyan-600" : "text-zinc-500")}
           >Comissões</button>
         </div>
       </div>
@@ -1009,7 +1009,7 @@ function AffiliateManagement() {
                   <td className="px-6 py-4">
                     <span className={cn(
                       "px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
-                      a.status === 'active' ? "bg-emerald-100 text-emerald-600" : "bg-yellow-100 text-yellow-600"
+                      a.status === 'active' ? "bg-cyan-100 text-cyan-600" : "bg-yellow-100 text-yellow-600"
                     )}>
                       {a.status}
                     </span>
@@ -1018,7 +1018,7 @@ function AffiliateManagement() {
                     {a.status === 'pending' ? (
                       <button 
                         onClick={() => updateAffiliateStatus(a.id, 'active')}
-                        className="text-emerald-600 hover:bg-emerald-50 px-3 py-1 rounded-lg text-xs font-bold transition-all"
+                        className="text-cyan-600 hover:bg-cyan-50 px-3 py-1 rounded-lg text-xs font-bold transition-all"
                       >Aprovar</button>
                     ) : (
                       <button 
@@ -1056,11 +1056,11 @@ function AffiliateManagement() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm">R$ {c.order_total.toFixed(2)}</td>
-                  <td className="px-6 py-4 font-bold text-emerald-600">R$ {c.amount.toFixed(2)}</td>
+                  <td className="px-6 py-4 font-bold text-cyan-600">R$ {c.amount.toFixed(2)}</td>
                   <td className="px-6 py-4">
                     <span className={cn(
                       "px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
-                      c.status === 'paid' ? "bg-emerald-100 text-emerald-600" : "bg-yellow-100 text-yellow-600"
+                      c.status === 'paid' ? "bg-cyan-100 text-cyan-600" : "bg-yellow-100 text-yellow-600"
                     )}>
                       {c.status}
                     </span>
@@ -1069,7 +1069,7 @@ function AffiliateManagement() {
                     {c.status === 'pending' && (
                       <button 
                         onClick={() => updateCommissionStatus(c.id, 'paid')}
-                        className="text-emerald-600 hover:bg-emerald-50 px-3 py-1 rounded-lg text-xs font-bold transition-all"
+                        className="text-cyan-600 hover:bg-cyan-50 px-3 py-1 rounded-lg text-xs font-bold transition-all"
                       >Marcar como Pago</button>
                     )}
                   </td>
@@ -1122,7 +1122,7 @@ function SettingsManagement() {
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Visual Settings */}
         <div className="space-y-6 bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm">
-          <h2 className="text-lg font-bold flex items-center gap-2"><Palette size={20} className="text-emerald-500" /> Identidade Visual</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2"><Palette size={20} className="text-cyan-500" /> Identidade Visual</h2>
           <div className="space-y-4">
             <div className="space-y-1">
               <label className="text-sm font-medium">Nome da Loja</label>
@@ -1155,7 +1155,7 @@ function SettingsManagement() {
                     onClick={() => setFormData({...formData, layout_type: l})}
                     className={cn(
                       "px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border-2 transition-all",
-                      formData.layout_type === l ? "border-emerald-500 bg-emerald-50 text-emerald-600" : "border-zinc-100 text-zinc-400 hover:border-zinc-200"
+                      formData.layout_type === l ? "border-cyan-500 bg-cyan-50 text-cyan-600" : "border-zinc-100 text-zinc-400 hover:border-zinc-200"
                     )}
                   >
                     {l}
@@ -1168,7 +1168,7 @@ function SettingsManagement() {
 
         {/* Integration Settings */}
         <div className="space-y-6 bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm">
-          <h2 className="text-lg font-bold flex items-center gap-2"><Smartphone size={20} className="text-emerald-500" /> WhatsApp & Notificações</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2"><Smartphone size={20} className="text-cyan-500" /> WhatsApp & Notificações</h2>
           <div className="space-y-4">
             <div className="space-y-1">
               <label className="text-sm font-medium">Número WhatsApp (com DDD)</label>
@@ -1184,7 +1184,7 @@ function SettingsManagement() {
             </div>
           </div>
 
-          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><CreditCard size={20} className="text-emerald-500" /> Pagamentos</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><CreditCard size={20} className="text-cyan-500" /> Pagamentos</h2>
           <div className="space-y-4">
             <div className="space-y-1">
               <label className="text-sm font-medium">Chave PIX</label>
@@ -1200,7 +1200,7 @@ function SettingsManagement() {
             </div>
           </div>
 
-          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><Users size={20} className="text-emerald-500" /> Sistema de Afiliados</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><Users size={20} className="text-cyan-500" /> Sistema de Afiliados</h2>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-sm font-medium">Habilitar Sistema de Afiliados</label>
@@ -1208,7 +1208,7 @@ function SettingsManagement() {
                 type="checkbox" 
                 checked={formData.affiliate_system_enabled === 1} 
                 onChange={e => setFormData({...formData, affiliate_system_enabled: e.target.checked ? 1 : 0})} 
-                className="w-5 h-5 accent-emerald-500"
+                className="w-5 h-5 accent-cyan-500"
               />
             </div>
             <div className="space-y-1">
@@ -1222,7 +1222,7 @@ function SettingsManagement() {
             </div>
           </div>
 
-          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><Gift size={20} className="text-emerald-500" /> Sistema de Fidelidade</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><Gift size={20} className="text-cyan-500" /> Sistema de Fidelidade</h2>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-sm font-medium">Habilitar Sistema de Pontos</label>
@@ -1230,7 +1230,7 @@ function SettingsManagement() {
                 type="checkbox" 
                 checked={formData.loyalty_system_enabled === 1} 
                 onChange={e => setFormData({...formData, loyalty_system_enabled: e.target.checked ? 1 : 0})} 
-                className="w-5 h-5 accent-emerald-500"
+                className="w-5 h-5 accent-cyan-500"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -1245,7 +1245,7 @@ function SettingsManagement() {
             </div>
           </div>
 
-          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><AlertTriangle size={20} className="text-emerald-500" /> Alertas</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><AlertTriangle size={20} className="text-cyan-500" /> Alertas</h2>
           <div className="space-y-4">
             <div className="space-y-1">
               <label className="text-sm font-medium">Limite de Estoque Baixo</label>
@@ -1253,7 +1253,7 @@ function SettingsManagement() {
             </div>
           </div>
 
-          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><Ghost size={20} className="text-emerald-500" /> Inteligência Artificial</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><Ghost size={20} className="text-cyan-500" /> Inteligência Artificial</h2>
           <div className="space-y-4">
             <div className="space-y-1">
               <label className="text-sm font-medium">Provedor de IA</label>
@@ -1275,7 +1275,7 @@ function SettingsManagement() {
             </div>
           </div>
 
-          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><ShoppingBag size={20} className="text-emerald-500" /> Upsell no Checkout</h2>
+          <h2 className="text-lg font-bold flex items-center gap-2 pt-4 border-t"><ShoppingBag size={20} className="text-cyan-500" /> Upsell no Checkout</h2>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-sm font-medium">Habilitar Upsell</label>
@@ -1283,7 +1283,7 @@ function SettingsManagement() {
                 type="checkbox" 
                 checked={formData.upsell_enabled === 1} 
                 onChange={e => setFormData({...formData, upsell_enabled: e.target.checked ? 1 : 0})} 
-                className="w-5 h-5 accent-emerald-500"
+                className="w-5 h-5 accent-cyan-500"
               />
             </div>
             <div className="space-y-1">
@@ -1304,7 +1304,7 @@ function SettingsManagement() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-100 flex items-center justify-center gap-2"
+            className="w-full bg-cyan-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-100 flex items-center justify-center gap-2"
           >
             <Save size={24} /> {loading ? "Salvando..." : "Salvar Todas as Configurações"}
           </button>

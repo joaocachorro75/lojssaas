@@ -54,16 +54,16 @@ export function Storefront() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="hover:text-emerald-600 transition-colors">Início</Link>
-            <Link to="/produtos" className="hover:text-emerald-600 transition-colors">Produtos</Link>
+            <Link to="/" className="hover:text-cyan-600 transition-colors">Início</Link>
+            <Link to="/produtos" className="hover:text-cyan-600 transition-colors">Produtos</Link>
             {settings.affiliate_system_enabled === 1 && (
-              <Link to="/afiliados" className="hover:text-emerald-600 transition-colors">Afiliados</Link>
+              <Link to="/afiliados" className="hover:text-cyan-600 transition-colors">Afiliados</Link>
             )}
             {settings.loyalty_system_enabled === 1 && (
-              <Link to="/fidelidade" className="hover:text-emerald-600 transition-colors">Fidelidade</Link>
+              <Link to="/fidelidade" className="hover:text-cyan-600 transition-colors">Fidelidade</Link>
             )}
-            <Link to="/rastreio" className="hover:text-emerald-600 transition-colors">Rastreio</Link>
-            <Link to="/contato" className="hover:text-emerald-600 transition-colors">Contato</Link>
+            <Link to="/rastreio" className="hover:text-cyan-600 transition-colors">Rastreio</Link>
+            <Link to="/contato" className="hover:text-cyan-600 transition-colors">Contato</Link>
           </div>
 
           <div className="flex items-center gap-4">
@@ -73,7 +73,7 @@ export function Storefront() {
             >
               <ShoppingCart size={24} />
               {cartCount > 0 && (
-                <span className="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white">
+                <span className="absolute top-0 right-0 bg-cyan-500 text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white">
                   {cartCount}
                 </span>
               )}
@@ -111,7 +111,7 @@ export function Storefront() {
             <Link to="/admin/login" className="text-[10px] opacity-20 hover:opacity-100 transition-opacity">Painel Administrativo</Link>
           </div>
           <p className="flex items-center gap-1">
-            Desenvolvido por <a href="https://to-ligado.com" target="_blank" rel="noopener noreferrer" className="font-bold text-emerald-600 hover:underline">To-Ligado.com</a>
+            Desenvolvido por <a href="https://to-ligado.com" target="_blank" rel="noopener noreferrer" className="font-bold text-cyan-600 hover:underline">To-Ligado.com</a>
           </p>
         </div>
       </footer>
@@ -121,7 +121,7 @@ export function Storefront() {
         href={`https://wa.me/${settings.whatsapp_number}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-emerald-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-40 bg-cyan-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center"
       >
         <MessageCircle size={28} />
       </a>
@@ -130,14 +130,14 @@ export function Storefront() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-200 z-50 flex items-center justify-around h-16 px-4 pb-safe">
         <Link to="/" className={cn(
           "flex flex-col items-center gap-1 text-zinc-500",
-          location.pathname === "/" && "text-emerald-600"
+          location.pathname === "/" && "text-cyan-600"
         )}>
           <ShoppingBag size={20} />
           <span className="text-[10px] font-medium">Início</span>
         </Link>
         <Link to="/produtos" className={cn(
           "flex flex-col items-center gap-1 text-zinc-500",
-          location.pathname === "/produtos" && "text-emerald-600"
+          location.pathname === "/produtos" && "text-cyan-600"
         )}>
           <Package size={20} />
           <span className="text-[10px] font-medium">Produtos</span>
@@ -148,7 +148,7 @@ export function Storefront() {
         >
           <ShoppingCart size={20} />
           {cartCount > 0 && (
-            <span className="absolute -top-1 -right-1 bg-emerald-500 text-white text-[8px] font-bold h-4 w-4 rounded-full flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 bg-cyan-500 text-white text-[8px] font-bold h-4 w-4 rounded-full flex items-center justify-center">
               {cartCount}
             </span>
           )}
@@ -177,7 +177,7 @@ export function Storefront() {
               className="fixed left-0 top-0 bottom-0 w-full max-w-[280px] bg-white z-[90] shadow-2xl flex flex-col"
             >
               <div className="p-4 border-b flex items-center justify-between">
-                <span className="font-bold text-emerald-600">Menu</span>
+                <span className="font-bold text-cyan-600">Menu</span>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 hover:bg-zinc-100 rounded-full">
                   <X size={24} />
                 </button>
@@ -207,7 +207,7 @@ export function Storefront() {
                 </Link>
               </div>
               <div className="p-4 border-t bg-zinc-50">
-                <Link to="/admin/login" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 p-3 rounded-xl text-zinc-400 text-xs hover:text-emerald-600 transition-colors">
+                <Link to="/admin/login" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 p-3 rounded-xl text-zinc-400 text-xs hover:text-cyan-600 transition-colors">
                   <ExternalLink size={16} /> Painel Admin
                 </Link>
               </div>
@@ -246,7 +246,7 @@ export function Storefront() {
                     <p>Seu carrinho está vazio</p>
                     <button 
                       onClick={() => setIsCartOpen(false)}
-                      className="text-emerald-600 font-medium underline"
+                      className="text-cyan-600 font-medium underline"
                     >
                       Continuar comprando
                     </button>
@@ -266,7 +266,7 @@ export function Storefront() {
                   <Link 
                     to="/checkout" 
                     onClick={() => setIsCartOpen(false)}
-                    className="w-full bg-emerald-600 text-white py-4 rounded-xl font-bold text-center block hover:bg-emerald-700 transition-colors"
+                    className="w-full bg-cyan-600 text-white py-4 rounded-xl font-bold text-center block hover:bg-cyan-700 transition-colors"
                   >
                     Finalizar Pedido
                   </Link>
@@ -308,7 +308,7 @@ function Home() {
           <Link 
             to="/produtos"
             className={cn(
-              "inline-block bg-emerald-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-600 transition-colors",
+              "inline-block bg-cyan-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-cyan-600 transition-colors",
               settings.layout_type === 'brutalist' && "bg-black text-white rounded-none border-2 border-white hover:bg-white hover:text-black"
             )}
           >
@@ -316,7 +316,7 @@ function Home() {
           </Link>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
-          <div className="w-full h-full bg-gradient-to-l from-emerald-500 to-transparent" />
+          <div className="w-full h-full bg-gradient-to-l from-cyan-500 to-transparent" />
         </div>
       </section>
 
@@ -324,7 +324,7 @@ function Home() {
       <section className="space-y-8">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Destaques</h2>
-          <Link to="/produtos" className="text-emerald-600 font-medium flex items-center gap-1 hover:underline">
+          <Link to="/produtos" className="text-cyan-600 font-medium flex items-center gap-1 hover:underline">
             Ver todos <ChevronRight size={16} />
           </Link>
         </div>
@@ -360,7 +360,7 @@ function ProductList() {
             placeholder="Buscar produtos..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-white border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none"
+            className="w-full pl-10 pr-4 py-2 bg-white border border-zinc-200 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none"
           />
         </div>
       </div>
@@ -370,7 +370,7 @@ function ProductList() {
           onClick={() => setSelectedCategory(null)}
           className={cn(
             "px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
-            selectedCategory === null ? "bg-emerald-500 text-white" : "bg-white border border-zinc-200 hover:bg-zinc-50"
+            selectedCategory === null ? "bg-cyan-500 text-white" : "bg-white border border-zinc-200 hover:bg-zinc-50"
           )}
         >
           Todos
@@ -381,7 +381,7 @@ function ProductList() {
             onClick={() => setSelectedCategory(cat.id)}
             className={cn(
               "px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
-              selectedCategory === cat.id ? "bg-emerald-500 text-white" : "bg-white border border-zinc-200 hover:bg-zinc-50"
+              selectedCategory === cat.id ? "bg-cyan-500 text-white" : "bg-white border border-zinc-200 hover:bg-zinc-50"
             )}
           >
             {cat.name}
@@ -421,15 +421,15 @@ function ProductCard({ product }: any) {
       </Link>
       <div className="p-4 space-y-2">
         <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">{product.category_name}</p>
-        <Link to={`/produto/${product.id}`} className="block font-bold text-zinc-900 hover:text-emerald-600 transition-colors line-clamp-1">
+        <Link to={`/produto/${product.id}`} className="block font-bold text-zinc-900 hover:text-cyan-600 transition-colors line-clamp-1">
           {product.name}
         </Link>
         <div className="flex items-center justify-between gap-2 pt-2">
-          <span className="text-lg font-bold text-emerald-600">R$ {product.price.toFixed(2)}</span>
+          <span className="text-lg font-bold text-cyan-600">R$ {product.price.toFixed(2)}</span>
           <button 
             onClick={() => addToCart(product)}
             className={cn(
-              "p-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors",
+              "p-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-colors",
               layout === 'brutalist' && "rounded-none border-2 border-black bg-yellow-400 text-black font-bold"
             )}
           >
@@ -450,7 +450,7 @@ function CartItemComponent({ item }: any) {
       </div>
       <div className="flex-1 space-y-1">
         <h3 className="font-bold text-sm line-clamp-1">{item.name}</h3>
-        <p className="text-emerald-600 font-bold">R$ {item.price.toFixed(2)}</p>
+        <p className="text-cyan-600 font-bold">R$ {item.price.toFixed(2)}</p>
         <div className="flex items-center gap-3 pt-1">
           <div className="flex items-center border rounded-lg overflow-hidden">
             <button 
@@ -487,7 +487,7 @@ function ProductDetail() {
       </div>
       <div className="space-y-6">
         <div className="space-y-2">
-          <p className="text-emerald-600 font-bold uppercase tracking-widest text-sm">{product.category_name}</p>
+          <p className="text-cyan-600 font-bold uppercase tracking-widest text-sm">{product.category_name}</p>
           <h1 className="text-4xl font-bold">{product.name}</h1>
           <p className="text-3xl font-bold text-zinc-900">R$ {product.price.toFixed(2)}</p>
         </div>
@@ -497,7 +497,7 @@ function ProductDetail() {
         <div className="pt-6 space-y-4">
           <button 
             onClick={() => addToCart(product)}
-            className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2"
+            className="w-full bg-cyan-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-cyan-700 transition-colors flex items-center justify-center gap-2"
           >
             <ShoppingCart size={24} /> Adicionar ao Carrinho
           </button>
@@ -648,7 +648,7 @@ function Checkout() {
         {[1, 2, 3].map(s => (
           <div key={s} className={cn(
             "h-2 flex-1 rounded-full transition-colors",
-            step >= s ? "bg-emerald-500" : "bg-zinc-200"
+            step >= s ? "bg-cyan-500" : "bg-zinc-200"
           )} />
         ))}
       </div>
@@ -657,7 +657,7 @@ function Checkout() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6 bg-white p-6 rounded-3xl border border-zinc-100 shadow-sm">
             <h2 className="text-xl font-bold flex items-center gap-2">
-              <Package size={24} className="text-emerald-500" /> Dados de Entrega
+              <Package size={24} className="text-cyan-500" /> Dados de Entrega
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2 space-y-1">
@@ -666,7 +666,7 @@ function Checkout() {
                   type="text" 
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
               <div className="space-y-1">
@@ -676,7 +676,7 @@ function Checkout() {
                   placeholder="(00) 00000-0000"
                   value={formData.whatsapp}
                   onChange={e => setFormData({...formData, whatsapp: e.target.value})}
-                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
               <div className="space-y-1">
@@ -685,7 +685,7 @@ function Checkout() {
                   type="text" 
                   value={formData.address_zip}
                   onChange={e => setFormData({...formData, address_zip: e.target.value})}
-                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
               <div className="col-span-2 space-y-1">
@@ -694,7 +694,7 @@ function Checkout() {
                   type="text" 
                   value={formData.address_street}
                   onChange={e => setFormData({...formData, address_street: e.target.value})}
-                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
               <div className="space-y-1">
@@ -703,7 +703,7 @@ function Checkout() {
                   type="text" 
                   value={formData.address_number}
                   onChange={e => setFormData({...formData, address_number: e.target.value})}
-                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
               <div className="space-y-1">
@@ -712,13 +712,13 @@ function Checkout() {
                   type="text" 
                   value={formData.address_city}
                   onChange={e => setFormData({...formData, address_city: e.target.value})}
-                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
             </div>
             <button 
               onClick={handleNext}
-              className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-colors"
+              className="w-full bg-cyan-600 text-white py-4 rounded-2xl font-bold hover:bg-cyan-700 transition-colors"
             >
               Continuar para Pagamento
             </button>
@@ -733,20 +733,18 @@ function Checkout() {
                     <span className="font-bold">R$ {(item.price * item.quantity).toFixed(2)}</span>
                   </div>
                 ))}
-              </div>
-
-              {upsellProduct && !cart.some(item => item.id === upsellProduct.id) && (
-                <div className="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 space-y-3">
-                  <p className="text-xs font-bold text-emerald-800 uppercase tracking-wider">{settings.upsell_title}</p>
+                            {upsellProduct && !cart.some(item => item.id === upsellProduct.id) && (
+                <div className="bg-cyan-50 p-4 rounded-2xl border border-cyan-100 space-y-3">
+                  <p className="text-xs font-bold text-cyan-800 uppercase tracking-wider">{settings.upsell_title}</p>
                   <div className="flex gap-3">
                     <img src={upsellProduct.image_url} className="w-12 h-12 rounded-lg object-cover" />
                     <div className="flex-1">
                       <p className="text-sm font-bold">{upsellProduct.name}</p>
-                      <p className="text-xs text-emerald-600 font-bold">Por apenas R$ {upsellProduct.price.toFixed(2)}</p>
+                      <p className="text-xs text-cyan-600 font-bold">Por apenas R$ {upsellProduct.price.toFixed(2)}</p>
                     </div>
                     <button 
                       onClick={() => useStore().addToCart(upsellProduct)}
-                      className="bg-emerald-600 text-white px-3 py-1 rounded-lg text-xs font-bold self-center"
+                      className="bg-cyan-600 text-white px-3 py-1 rounded-lg text-xs font-bold self-center"
                     >
                       Adicionar
                     </button>
@@ -760,13 +758,13 @@ function Checkout() {
                   <span className="font-medium">R$ {cartTotal.toFixed(2)}</span>
                 </div>
                 {discount > 0 && (
-                  <div className="flex justify-between text-sm text-emerald-600">
+                  <div className="flex justify-between text-sm text-cyan-600">
                     <span>Desconto (Cupom)</span>
                     <span>- R$ {discount.toFixed(2)}</span>
                   </div>
                 )}
                 {pointsDiscount > 0 && (
-                  <div className="flex justify-between text-sm text-emerald-600">
+                  <div className="flex justify-between text-sm text-cyan-600">
                     <span>Desconto (Pontos)</span>
                     <span>- R$ {pointsDiscount.toFixed(2)}</span>
                   </div>
@@ -776,11 +774,11 @@ function Checkout() {
                   <span>R$ {finalTotal.toFixed(2)}</span>
                 </div>
                 {settings?.loyalty_system_enabled && (
-                  <div className="bg-emerald-50 p-3 rounded-xl text-xs text-emerald-700 font-medium flex items-center gap-2">
+                  <div className="bg-cyan-50 p-3 rounded-xl text-xs text-cyan-700 font-medium flex items-center gap-2">
                     <Gift size={16} /> Você ganhará {Math.floor(finalTotal * settings.points_per_real)} pontos nesta compra!
                   </div>
                 )}
-              </div>
+              </div>      </div>
             </div>
           </div>
         </div>
@@ -789,7 +787,7 @@ function Checkout() {
       {step === 2 && (
         <div className="max-w-md mx-auto space-y-6 bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm">
           <div className="text-center space-y-2">
-            <CreditCard size={48} className="mx-auto text-emerald-500" />
+            <CreditCard size={48} className="mx-auto text-cyan-500" />
             <h2 className="text-2xl font-bold">Finalizar Pedido</h2>
           </div>
 
@@ -802,7 +800,7 @@ function Checkout() {
                   value={couponCode}
                   onChange={e => setCouponCode(e.target.value.toUpperCase())}
                   placeholder="CÓDIGO"
-                  className="flex-1 px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="flex-1 px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 />
                 <button 
                   onClick={applyCoupon}
@@ -817,14 +815,14 @@ function Checkout() {
               <div className="bg-zinc-50 p-4 rounded-2xl border border-zinc-200 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Gift className="text-emerald-500" size={20} />
+                    <Gift className="text-cyan-500" size={20} />
                     <span className="text-sm font-bold">Usar meus pontos</span>
                   </div>
                   <input 
                     type="checkbox" 
                     checked={usePoints}
                     onChange={e => setUsePoints(e.target.checked)}
-                    className="w-5 h-5 accent-emerald-500"
+                    className="w-5 h-5 accent-cyan-500"
                   />
                 </div>
                 <p className="text-xs text-zinc-500">Você tem {customerPoints} pontos (R$ {(customerPoints * settings.points_value_per_point).toFixed(2)} de desconto)</p>
@@ -837,24 +835,24 @@ function Checkout() {
                 onClick={() => setFormData({...formData, paymentMethod: 'pix'})}
                 className={cn(
                   "w-full p-4 rounded-2xl border-2 flex items-center justify-between transition-all",
-                  formData.paymentMethod === 'pix' ? "border-emerald-500 bg-emerald-50" : "border-zinc-100 hover:border-zinc-200"
+                  formData.paymentMethod === 'pix' ? "border-cyan-500 bg-cyan-50" : "border-zinc-100 hover:border-zinc-200"
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 font-bold">PIX</div>
+                  <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center text-cyan-600 font-bold">PIX</div>
                   <div className="text-left">
                     <p className="font-bold">PIX</p>
                     <p className="text-xs text-zinc-500">Aprovação imediata</p>
                   </div>
                 </div>
-                {formData.paymentMethod === 'pix' && <CheckCircle size={20} className="text-emerald-500" />}
+                {formData.paymentMethod === 'pix' && <CheckCircle size={20} className="text-cyan-500" />}
               </button>
             </div>
 
             <button 
               onClick={handleFinish}
               disabled={loading}
-              className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-100 disabled:opacity-50"
+              className="w-full bg-cyan-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-100 disabled:opacity-50"
             >
               {loading ? "Processando..." : `Finalizar Pedido - R$ ${finalTotal.toFixed(2)}`}
             </button>
@@ -883,14 +881,14 @@ function Checkout() {
                   navigator.clipboard.writeText(pixData.payload);
                   alert("Código copiado!");
                 }}
-                className="bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-bold"
+                className="bg-cyan-500 text-white px-4 py-2 rounded-xl text-sm font-bold"
               >Copiar</button>
             </div>
           </div>
           <Link 
             to="/pedido-sucesso" 
             onClick={clearCart}
-            className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold block hover:bg-emerald-700 transition-colors"
+            className="w-full bg-cyan-600 text-white py-4 rounded-2xl font-bold block hover:bg-cyan-700 transition-colors"
           >
             Já realizei o pagamento
           </Link>
@@ -947,7 +945,7 @@ function OrderTracking() {
               value={whatsapp} 
               onChange={e => setWhatsapp(e.target.value)}
               placeholder="5511999999999"
-              className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
             />
           </div>
           <div className="space-y-1">
@@ -957,14 +955,14 @@ function OrderTracking() {
               value={orderId} 
               onChange={e => setOrderId(e.target.value)}
               placeholder="#123"
-              className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full px-4 py-2 border rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
             />
           </div>
         </div>
         <button 
           type="submit" 
           disabled={loading}
-          className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition-all disabled:opacity-50"
+          className="w-full bg-cyan-600 text-white py-3 rounded-xl font-bold hover:bg-cyan-700 transition-all disabled:opacity-50"
         >
           {loading ? "Buscando..." : "Rastrear Agora"}
         </button>
@@ -980,7 +978,7 @@ function OrderTracking() {
           <div className="flex items-center justify-between border-b pb-4">
             <div>
               <p className="text-xs text-zinc-400 uppercase font-bold">Status do Pedido</p>
-              <h3 className="text-xl font-bold text-emerald-600 uppercase">{order.status}</h3>
+              <h3 className="text-xl font-bold text-cyan-600 uppercase">{order.status}</h3>
             </div>
             <div className="text-right">
               <p className="text-xs text-zinc-400 uppercase font-bold">Data do Pedido</p>
@@ -1015,7 +1013,7 @@ function OrderTracking() {
 function OrderSuccess() {
   return (
     <div className="max-w-md mx-auto py-12 text-center space-y-6">
-      <div className="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+      <div className="w-24 h-24 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center mx-auto">
         <CheckCircle size={64} />
       </div>
       <h1 className="text-3xl font-bold">Pedido Recebido!</h1>
@@ -1023,7 +1021,7 @@ function OrderSuccess() {
         Seu pedido foi registrado com sucesso. Você receberá atualizações sobre o status do seu pedido via WhatsApp.
       </p>
       <div className="pt-6">
-        <Link to="/" className="inline-block bg-emerald-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-colors">
+        <Link to="/" className="inline-block bg-cyan-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-cyan-700 transition-colors">
           Voltar para a Loja
         </Link>
       </div>
@@ -1044,7 +1042,7 @@ function AffiliateInfo() {
 
       <div className="grid md:grid-cols-3 gap-8">
         <div className="bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm text-center space-y-4">
-          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center mx-auto">
             <Users size={32} />
           </div>
           <h3 className="font-bold text-lg">1. Cadastre-se</h3>
@@ -1070,7 +1068,7 @@ function AffiliateInfo() {
         <h2 className="text-3xl font-bold">Pronto para começar?</h2>
         <p className="text-zinc-400 max-w-xl mx-auto">Junte-se ao nosso time de parceiros e comece a faturar hoje mesmo com a {settings.store_name}.</p>
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-          <Link to="/afiliados/login" className="bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-600 transition-colors w-full md:w-auto">
+          <Link to="/afiliados/login" className="bg-cyan-500 text-white px-8 py-4 rounded-2xl font-bold hover:bg-cyan-600 transition-colors w-full md:w-auto">
             Quero me cadastrar
           </Link>
           <Link to="/afiliados/login" className="bg-white/10 text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/20 transition-colors w-full md:w-auto">
@@ -1093,7 +1091,7 @@ function LoyaltyInfo() {
         <p className="text-xl text-zinc-500">Suas compras valem pontos que viram descontos!</p>
       </div>
 
-      <div className="bg-emerald-600 text-white p-12 rounded-[40px] relative overflow-hidden">
+      <div className="bg-cyan-600 text-white p-12 rounded-[40px] relative overflow-hidden">
         <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">Como funciona?</h2>
@@ -1113,7 +1111,7 @@ function LoyaltyInfo() {
             </ul>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl text-center space-y-4">
-            <Gift size={64} className="mx-auto text-emerald-300" />
+            <Gift size={64} className="mx-auto text-cyan-300" />
             <p className="text-lg font-medium">Exemplo: Uma compra de R$ 100,00 gera {100 * settings.points_per_real} pontos, que valem R$ {(100 * settings.points_per_real * settings.points_value_per_point).toFixed(2)} de desconto!</p>
           </div>
         </div>
@@ -1147,9 +1145,9 @@ function Contact() {
           href={`https://wa.me/${settings.whatsapp_number}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-6 p-8 bg-white rounded-3xl border border-zinc-100 shadow-sm hover:border-emerald-500 transition-all group"
+          className="flex items-center gap-6 p-8 bg-white rounded-3xl border border-zinc-100 shadow-sm hover:border-cyan-500 transition-all group"
         >
-          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+          <div className="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center group-hover:bg-cyan-500 group-hover:text-white transition-colors">
             <MessageCircle size={32} />
           </div>
           <div>

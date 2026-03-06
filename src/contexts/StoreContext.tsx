@@ -37,8 +37,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     try {
       // Get tenant ID from URL or localStorage
       const params = new URLSearchParams(window.location.search);
-      const tenantId = params.get("tenant") || localStorage.getItem("current_tenant_id") || "1";
+      const tenantId = params.get("tenant") || localStorage.getItem("current_tenant_id");
       
+      if (!tenantId) {
+        setSettings(null);
+        setLoading(false);
+        return;
+      }
+
       const headers = { "x-tenant-id": tenantId };
       
       const [settingsRes, categoriesRes, productsRes] = await Promise.all([
@@ -47,8 +53,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         fetch("/api/products", { headers })
       ]);
       
-      if (!settingsRes.ok || !categoriesRes.ok || !productsRes.ok) {
-        throw new Error("Failed to fetch store data");
+      if (!settingsRes.ok) {
+        setSettings(null);
+        setLoading(false);
+        return;
       }
 
       const settingsData = await settingsRes.json();
@@ -59,9 +67,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       setCategories(categoriesData);
       setProducts(productsData);
       
-      if (tenantId) localStorage.setItem("current_tenant_id", tenantId);
+      localStorage.setItem("current_tenant_id", tenantId);
     } catch (error) {
       console.error("Error fetching store data:", error);
+      setSettings(null);
     } finally {
       setLoading(false);
     }

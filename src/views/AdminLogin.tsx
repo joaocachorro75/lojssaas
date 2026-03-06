@@ -42,11 +42,11 @@ export function AdminLogin() {
     <div className="min-h-screen flex items-center justify-center bg-zinc-50 p-4">
       <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-3xl border border-zinc-100 shadow-xl">
         <div className="text-center space-y-2">
-          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Lock size={32} />
           </div>
-          <h1 className="text-2xl font-bold text-zinc-900">Painel Administrativo</h1>
-          <p className="text-zinc-500">Faça login para gerenciar sua loja</p>
+          <h1 className="text-2xl font-bold text-zinc-900 tracking-tighter">SUPERLOJAS ADMIN</h1>
+          <p className="text-zinc-500">Faça login para gerenciar sua loja virtual</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">
@@ -60,7 +60,7 @@ export function AdminLogin() {
                   required
                   value={username}
                   onChange={e => setUsername(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
                   placeholder="Seu usuário"
                 />
               </div>
@@ -74,7 +74,7 @@ export function AdminLogin() {
                   required
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-12 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                  className="w-full pl-10 pr-12 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
                   placeholder="Sua senha"
                 />
                 <button 
@@ -93,10 +93,20 @@ export function AdminLogin() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full bg-emerald-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-emerald-700 transition-all disabled:opacity-50 shadow-lg shadow-emerald-200"
+            className="w-full bg-cyan-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-cyan-700 transition-all disabled:opacity-50 shadow-lg shadow-cyan-200"
           >
             {loading ? "Entrando..." : "Entrar no Painel"}
           </button>
+
+          <div className="text-center">
+            <button 
+              type="button"
+              onClick={() => navigate("/")}
+              className="text-sm font-medium text-zinc-500 hover:text-cyan-600 transition-colors"
+            >
+              Voltar para a página inicial
+            </button>
+          </div>
         </form>
       </div>
     </div>

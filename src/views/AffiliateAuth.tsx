@@ -56,7 +56,7 @@ export function AffiliateAuth() {
 
   return (
     <div className="min-h-screen bg-zinc-50 flex flex-col items-center justify-center p-4">
-      <Link to="/" className="mb-8 flex items-center gap-2 text-zinc-500 hover:text-emerald-600 transition-colors">
+      <Link to="/" className="mb-8 flex items-center gap-2 text-zinc-500 hover:text-cyan-600 transition-colors">
         <ChevronLeft size={20} /> Voltar para a loja
       </Link>
 
@@ -79,7 +79,7 @@ export function AffiliateAuth() {
                   type="text"
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
-                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Seu nome"
                 />
               </div>
@@ -95,7 +95,7 @@ export function AffiliateAuth() {
                 type="text"
                 value={formData.whatsapp}
                 onChange={e => setFormData({...formData, whatsapp: e.target.value})}
-                className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="5511999999999"
               />
             </div>
@@ -111,7 +111,7 @@ export function AffiliateAuth() {
                   type="email"
                   value={formData.email}
                   onChange={e => setFormData({...formData, email: e.target.value})}
-                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -127,7 +127,7 @@ export function AffiliateAuth() {
                 type="password"
                 value={formData.password}
                 onChange={e => setFormData({...formData, password: e.target.value})}
-                className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="Sua senha"
               />
             </div>
@@ -143,7 +143,7 @@ export function AffiliateAuth() {
                   type="text"
                   value={formData.pix_key}
                   onChange={e => setFormData({...formData, pix_key: e.target.value})}
-                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="CPF, Email ou Aleatória"
                 />
               </div>
@@ -155,7 +155,7 @@ export function AffiliateAuth() {
           <button 
             type="submit"
             disabled={loading}
-            className="w-full bg-emerald-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-emerald-700 transition-all disabled:opacity-50"
+            className="w-full bg-cyan-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-cyan-700 transition-all disabled:opacity-50"
           >
             {loading ? "Processando..." : (isLogin ? "Entrar" : "Cadastrar")}
           </button>
@@ -164,7 +164,7 @@ export function AffiliateAuth() {
         <div className="text-center">
           <button 
             onClick={() => setIsLogin(!isLogin)}
-            className="text-sm text-zinc-500 hover:text-emerald-600 font-medium"
+            className="text-sm text-zinc-500 hover:text-cyan-600 font-medium"
           >
             {isLogin ? "Não tem conta? Cadastre-se aqui" : "Já tem conta? Faça login aqui"}
           </button>
